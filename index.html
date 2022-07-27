@@ -20,8 +20,10 @@
     <title>Document</title>
   </head>
   <body class="bg-light">
+    <!-- app -->
     <div class="container-fluid px-5 my-5 bg-light" style="border-radius: 10px">
       <div class="row align-items-center" style="height: 90vh">
+        <!-- Right sidebar -->
         <div
           class="right-sidebar col-2 bg-primary h-100"
           style="border-radius: 0 20px 20px 0"
@@ -50,11 +52,11 @@
                 </svg>
                 <a
                   class="list-group-item d-inline list-group-item-action active text-white"
-                  id="list-home-list"
+                  id="list-users-list"
                   data-bs-toggle="list"
-                  href="#list-home"
+                  href="#list-users"
                   role="tab"
-                  aria-controls="list-home"
+                  aria-controls="list-users"
                   >لیست کاربران</a
                 >
               </span>
@@ -111,49 +113,52 @@
             </li>
           </div>
         </div>
+
+        <!-- main panel  -->
         <div
           class="main-panel col-10 h-100 bg-white"
           style="border-radius: 20px 0 0 20px"
         >
-          <header>
-            <nav class="navbar bg-white mb-4">
-              <div class="container-fluid bg-white">
-                <form class="d-flex" role="search" style="width: 100%">
-                  <input
-                    class="form-control form-control-sm me-2"
-                    style="width: (100% - 100px)"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button class="btn btn-sm btn-outline-white" type="submit">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      class="bi bi-search"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                      />
-                    </svg>
-                  </button>
-                </form>
-              </div>
-            </nav>
-          </header>
+          <!-- main panel navbar -->
+          <nav class="navbar bg-white mb-4">
+            <!-- navbar search input -->
+            <div class="container-fluid bg-white">
+              <form action="#" class="d-flex" role="search" style="width: 100%">
+                <input
+                  class="form-control form-control-sm me-2"
+                  style="width: (100% - 100px)"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-sm btn-outline-white" type="submit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </nav>
+          <!-- main panel content main-body -->
+
           <div class="tab-content" id="nav-tabContent">
+            <!-- main panel لیست کاربران -->
             <div
               class="tab-pane fade show active"
-              id="list-home"
+              id="list-users"
               role="tabpanel"
-              aria-labelledby="list-home-list"
+              aria-labelledby="list-users-list"
             >
-              <header>
-                <h2>لیست کاربران</h2>
-              </header>
+              <h2>لیست کاربران</h2>
               <main>
                 <div class="row mt-4">
                   <div
@@ -183,93 +188,99 @@
                   </div>
                   <div class="col-12">
                     <div class="tab-content" id="nav-tabContent">
+                      <!-- page of لیست کاربران - ادمین ها  -->
                       <div
                         class="tab-pane fade show active"
                         id="users-admins"
                         role="tabpanel"
                         aria-labelledby="users-admins"
                       >
+                        <!-- table of لیست کاربران - ادمین ها  -->
                         <table class="table table-striped table-hover">
                           <thead class="bg-primary">
                             <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">First</th>
-                              <th scope="col">Last</th>
-                              <th scope="col">Handle</th>
+                              <th scope="col">ادمین</th>
+                              <th scope="col">نام</th>
+                              <th scope="col">نام خانوادگی</th>
+                              <th scope="col">عملیات</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            <!-- you should add this part to your php  -->
+                            <tr class="align-middle" id="adminId1">
                               <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>@mdo</td>
+                              <td>Larry the Bird</td>
+                              <td>Larry the Bird</td>
+                              <td colspan="2">
+                                <!-- open edit admin modal btn  -->
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-success"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#btn-edit-admins"
+                                  onclick="onEditHandleClick('admin','adminId1')"
+                                >
+                                  تغییر
+                                </button>
+                                <button
+                                  class="btn ms-1 btn-outline-danger"
+                                  type="submit"
+                                >
+                                  حذف
+                                </button>
+                              </td>
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>@fat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td colspan="2">Larry the Bird</td>
-                              <td>@twitter</td>
-                            </tr>
+                            <!-- until here  -->
                           </tbody>
                         </table>
                       </div>
+
+                      <!-- page of لیست کاربران - کاربران  -->
                       <div
                         class="tab-pane fade"
                         id="users-users"
                         role="tabpanel"
                         aria-labelledby="list-profile-list"
                       >
+                        <!-- table of لیست کاربران - کاربران  -->
                         <table class="table table-striped table-hover">
                           <thead class="bg-primary">
                             <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">First</th>
-                              <th scope="col">Last</th>
-                              <th scope="col">Handle</th>
+                              <th scope="col">کاربر</th>
+                              <th scope="col">نام</th>
+                              <th scope="col">نام خانوادگی</th>
+                              <th scope="col">عملیات</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            <tr class="align-middle" id="userId1">
                               <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>@mdo</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>@fat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td colspan="2">Larry the Bird</td>
-                              <td>@twitter</td>
+                              <td>Larry the Bird</td>
+                              <td>Larry the Bird</td>
+                              <td colspan="2">
+                                <!-- open admin edit modal btn  -->
+                                <a href="index.html?id=<?php ?>" class=""
+                                  >تغییر</a
+                                >
+                                <!-- <button
+                                  type="button"
+                                  class="btn btn-outline-success"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#btn-edit-admins"
+                                  onclick="onEditHandleClick('user','userId1')"
+                                >
+                                  تغییر</button -->
+                                >
+                                <button
+                                  class="btn ms-1 btn-outline-danger"
+                                  type="submit"
+                                >
+                                  حذف
+                                </button>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="list-messages"
-                        role="tabpanel"
-                        aria-labelledby="list-messages-list"
-                      >
-                        ...
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="list-settings"
-                        role="tabpanel"
-                        aria-labelledby="list-settings-list"
-                      >
-                        ...
                       </div>
                     </div>
                   </div>
@@ -277,128 +288,213 @@
               </main>
             </div>
 
+            <!-- main panel لیست دامنه ها-->
             <div
               class="tab-pane fade"
               id="list-profile"
               role="tabpanel"
               aria-labelledby="list-profile-list"
             >
-              <header>
-                <h2>لیست دامنه ها</h2>
-              </header>
+              <h2>لیست دامنه ها</h2>
               <main>
+                <!-- page of دامنه ها  -->
                 <div class="row mt-4">
                   <div class="col-12">
-                    <div class="tab-content" id="nav-tabContent">
-                      <div
-                        class="tab-pane fade show active"
-                        id="users-admins"
-                        role="tabpanel"
-                        aria-labelledby="users-admins"
-                      >
-                        <table class="table table-striped table-hover">
-                          <thead class="bg-primary">
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">First</th>
-                              <th scope="col">Last</th>
-                              <th scope="col">Handle</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>@mdo</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>@fat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td colspan="2">Larry the Bird</td>
-                              <td>@twitter</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="users-users"
-                        role="tabpanel"
-                        aria-labelledby="list-profile-list"
-                      >
-                        <table class="table table-striped table-hover">
-                          <thead class="bg-primary">
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">First</th>
-                              <th scope="col">Last</th>
-                              <th scope="col">Handle</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>@mdo</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>@fat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td colspan="2">Larry the Bird</td>
-                              <td>@twitter</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="list-messages"
-                        role="tabpanel"
-                        aria-labelledby="list-messages-list"
-                      >
-                        ...
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="list-settings"
-                        role="tabpanel"
-                        aria-labelledby="list-settings-list"
-                      >
-                        ...
-                      </div>
-                    </div>
+                    <!-- table of دامنه ها  -->
+                    <table class="table table-striped table-hover">
+                      <thead class="bg-primary">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">First</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td colspan="2">Larry the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="users-users"
+                    role="tabpanel"
+                    aria-labelledby="list-profile-list"
+                  >
+                    <table class="table table-striped table-hover">
+                      <thead class="bg-primary">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">First</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td colspan="2">Larry the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="list-messages"
+                    role="tabpanel"
+                    aria-labelledby="list-messages-list"
+                  >
+                    ...
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="list-settings"
+                    role="tabpanel"
+                    aria-labelledby="list-settings-list"
+                  >
+                    ...
                   </div>
                 </div>
               </main>
             </div>
+
+            <!-- main panel دسته بندی ها  -->
             <div
               class="tab-pane fade"
               id="list-categories"
               role="tabpanel"
               aria-labelledby="list-profile-list"
             >
-              <header>
-                <h2>دسته بندی ها</h2>
-              </header>
+              <h2>دسته بندی ها</h2>
               <main></main>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
+      <!-- Modals -->
+      <!-- admin table edit modal  -->
+      <div
+        class="modal fade"
+        id="btn-edit-admins"
+        tabindex="-1"
+        aria-labelledby="btn-edit-adminsLabel"
+        data-bs-backdrop="static"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- header of modal  -->
+              <h5 class="modal-title" id="btn-edit-adminsLabel">Modal title</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="nameInput" class="form-label">نام</label>
+                <input type="text" class="form-control" id="nameInput" placeholder="">
+              </div>
+              <div class="mb-3">
+                <label for="lastnameInput" class="form-label">نام خانوادگی</label>
+                <input type="text" class="form-control" id="lastnameInput" placeholder="">
+              </div>
+              <form action="#">
+                <button type="submit" class="btn btn-success">
+                  اعمال تغییرات
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  لغو
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- user table edit modal  -->
+      <!-- <div
+        class="modal fade"
+        id="btn-edit-users"
+        tabindex="-1"
+        aria-labelledby="btn-edit-usersLabel"
+        data-bs-backdrop="static"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="btn-edit-usersLabel">Modal title</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer justify-content-start">
+              <button type="button" class="btn btn-success">
+                اعمال تغییرات
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                لغو
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    foreach($row as $item){
+    <form action="#" method="post">
+      <label for="">name</label>
+      <input type="text" name="name" id="" placeholder="$item[1]" />
+      <label for="">name</label>
+      <input type="hidden" name="userId" value="$item[0]" />
+      <input type="text" name="name" id="" placeholder="$item[2]" />
+      <input type="submit" value="submit" name="enter" />
+    </form>
+    }
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
@@ -409,6 +505,20 @@
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
       crossorigin="anonymous"
     ></script>
+    <script>
+      let onEditHandleClick = (modaltype, dataId) => {
+        document.getElementById("btn-edit-adminsLabel").innerText = dataId;
+        switch (modaltype) {
+          case "admin":
+            break;
+          case "user":
+            break;
+
+          default:
+            break;
+        }
+      };
+    </script>
     <script src="index.js"></script>
   </body>
 </html>
