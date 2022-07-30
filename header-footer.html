@@ -39,11 +39,7 @@
         <div
           class="right-sidebar col-2 bg-primary h-100"
           style="border-radius: 0 20px 20px 0"
-        >
-          <!-- right-navbar.html here  -->
-          <!-- ////////////////////// -->
-          <!-- right-navbar.html here  -->
-        </div>
+        ></div>
         <!-- Right sidebar  -->
 
         <!-- main panel  -->
@@ -63,8 +59,60 @@
           <!--  -->
           <!-- main panel pagination -->
           <!-- ///////////////////// -->
-          <!-- main panel pagination -->
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            حذف
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+
+
           
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    آیا مطمئن هستید؟
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  درصورت حذف قابل دسترسی نمیباشد!
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- main panel pagination -->
         </div>
         <!-- Main panel  -->
       </div>
@@ -104,12 +152,39 @@
     </script>
     <script>
       let today = new Date();
-      document.getElementById('setTodayTime').innerText = (today.toLocaleTimeString('fa-IR'));
-      document.getElementById('setTodayDate').innerText = (today.toLocaleDateString('fa-IR'))
+      document.getElementById("setTodayTime").innerText =
+        today.toLocaleTimeString("fa-IR");
+      document.getElementById("setTodayDate").innerText =
+        today.toLocaleDateString("fa-IR");
       setInterval(() => {
         today = new Date();
-        document.getElementById('setTodayTime').innerText = (today.toLocaleTimeString('fa-IR'));
-      }, 1000);      
+        document.getElementById("setTodayTime").innerText =
+          today.toLocaleTimeString("fa-IR");
+      }, 1000);
+    </script>
+    <script>
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
     </script>
   </body>
 </html>
