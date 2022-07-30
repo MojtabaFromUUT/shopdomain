@@ -64,7 +64,6 @@
           <!-- main panel pagination -->
           <!-- ///////////////////// -->
           <!-- main panel pagination -->
-
           
         </div>
         <!-- Main panel  -->
@@ -80,6 +79,37 @@
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
       crossorigin="anonymous"
     ></script>
-    <script></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const labels = ["دامنه ها", "دامنه های فروخته شده", "دامنه های vip"];
+
+      const data = {
+        labels: labels,
+        datasets: [
+          {
+            label: "آمار",
+            backgroundColor: "rgb(0, 150, 200)",
+            borderColor: "rgb(0, 150, 200)",
+            data: [2500, 500, 150],
+          },
+        ],
+      };
+
+      const config = {
+        type: "bar",
+        data: data,
+        options: {},
+      };
+      const myChart = new Chart(document.getElementById("myChart"), config);
+    </script>
+    <script>
+      let today = new Date();
+      document.getElementById('setTodayTime').innerText = (today.toLocaleTimeString('fa-IR'));
+      document.getElementById('setTodayDate').innerText = (today.toLocaleDateString('fa-IR'))
+      setInterval(() => {
+        today = new Date();
+        document.getElementById('setTodayTime').innerText = (today.toLocaleTimeString('fa-IR'));
+      }, 1000);      
+    </script>
   </body>
 </html>
