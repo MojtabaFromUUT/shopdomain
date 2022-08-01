@@ -1,0 +1,105 @@
+<div class="row row-cols-4">
+  <div class="form-check form-check-inline col">
+    <input
+      class="form-check-input canCheck"
+      type="checkbox"
+      id="inlinecheckbox1"
+      value="option1"
+    />
+    <label class="form-check-label" for="inlinecheckbox1">1</label>
+  </div>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+  integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+  integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const labels = ["دامنه ها", "دامنه های فروخته شده", "دامنه های vip"];
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "آمار",
+        backgroundColor: "rgb(0, 150, 200)",
+        borderColor: "rgb(0, 150, 200)",
+        data: [2500, 500, 150],
+      },
+    ],
+  };
+
+  const config = {
+    type: "bar",
+    data: data,
+    options: {},
+  };
+  const myChart = new Chart(document.getElementById("myChart"), config);
+</script>
+<script>
+  let today = new Date();
+  document.getElementById("setTodayTime").innerText =
+    today.toLocaleTimeString("fa-IR");
+  document.getElementById("setTodayDate").innerText =
+    today.toLocaleDateString("fa-IR");
+  setInterval(() => {
+    today = new Date();
+    document.getElementById("setTodayTime").innerText =
+      today.toLocaleTimeString("fa-IR");
+  }, 1000);
+</script>
+<script>
+  (() => {
+    "use strict";
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll(".needs-validation");
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>
+<script>
+  let allBtn = document.getElementsByClassName("canCheck");
+  let limit3 = 0;
+  Array.from(allBtn).map((btn) =>
+    btn.addEventListener("click", function () {
+      if (!btn.checked) {
+        limit3 = limit3 > 0 ? limit3 - 1 : 0;
+      } else {
+        limit3 = limit3 < 3 ? limit3 + 1 : limit3;
+      }
+      if (limit3 == 3) {
+        Array.from(allBtn).map((btn) => {
+          console.log(btn);
+          if (btn.checked) {
+            btn.removeAttribute("disabled");
+          } else {
+            btn.setAttribute("disabled", "disabled");
+          }
+        });
+      } else {
+        Array.from(allBtn).map((btn) => btn.removeAttribute("disabled"));
+      }
+    })
+  );
+</script>
